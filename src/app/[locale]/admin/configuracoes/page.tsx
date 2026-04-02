@@ -1,50 +1,23 @@
-import { prisma } from "@/lib/prisma";
 import Reveal from "@/components/ui/Reveal";
 import { Mail, Phone, MapPin, Camera, Globe, Save, Shield, Sliders } from "lucide-react";
 
 export default async function SettingsPage() {
-    // Fetch settings from DB
-    const settings = await prisma.setting.findMany();
-    const settingsMap = settings.reduce((acc, s) => ({ ...acc, [s.key]: s.value }), {} as any);
-
-    // Default values if not set
-    const contactEmail = settingsMap['contact_email'] || "sac@yokomitsu.com.br";
-    const contactPhone = settingsMap['contact_phone'] || "+55 (11) 99999-9999";
-    const contactAddress = settingsMap['contact_address'] || "Rua Industrial, 123 - São Paulo/SP";
-    const socialInstagram = settingsMap['social_instagram'] || "@yokomitsu.brasil";
-    const siteMaintenance = settingsMap['site_maintenance'] === 'true';
+    // Mock settings
+    const contactEmail = "sac@yokomitsu.com.br";
+    const contactPhone = "+55 (11) 99999-9999";
+    const contactAddress = "Rua Industrial, 123 - São Paulo/SP";
+    const socialInstagram = "@yokomitsu.brasil";
 
     return (
         <div className="space-y-12">
             <header>
                 <Reveal direction="left">
                     <h1 className="font-display text-4xl font-black text-white uppercase tracking-tighter mb-2">Configurações</h1>
-                    <p className="text-gray-500 font-medium">Controle global dos parâmetros da plataforma.</p>
+                    <p className="text-gray-500 font-medium">Controle global dos parâmetros da plataforma. (Modo Mockup)</p>
                 </Reveal>
             </header>
 
-            <form action={async (formData) => {
-                "use server";
-                const email = formData.get("contact_email") as string;
-                const phone = formData.get("contact_phone") as string;
-                const address = formData.get("contact_address") as string;
-                const instagram = formData.get("social_instagram") as string;
-
-                const keys = {
-                    "contact_email": email,
-                    "contact_phone": phone,
-                    "contact_address": address,
-                    "social_instagram": instagram
-                };
-
-                for (const [key, value] of Object.entries(keys)) {
-                    await prisma.setting.upsert({
-                        where: { key },
-                        update: { value },
-                        create: { key, value }
-                    });
-                }
-            }}>
+            <form>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                     {/* Contact Settings */}
                     <div className="lg:col-span-2 space-y-8">
@@ -63,7 +36,8 @@ export default async function SettingsPage() {
                                             <input
                                                 name="contact_email"
                                                 defaultValue={contactEmail}
-                                                className="w-full pl-12 pr-6 py-4 bg-black border border-white/5 rounded-xl text-sm focus:border-brand-accent outline-none transition-all"
+                                                readOnly
+                                                className="w-full pl-12 pr-6 py-4 bg-black border border-white/5 rounded-xl text-sm focus:border-brand-accent outline-none transition-all cursor-not-allowed text-zinc-500"
                                                 placeholder="exemplo@yokomitsu.com.br"
                                             />
                                         </div>
@@ -76,7 +50,8 @@ export default async function SettingsPage() {
                                             <input
                                                 name="contact_phone"
                                                 defaultValue={contactPhone}
-                                                className="w-full pl-12 pr-6 py-4 bg-black border border-white/5 rounded-xl text-sm focus:border-brand-accent outline-none transition-all"
+                                                readOnly
+                                                className="w-full pl-12 pr-6 py-4 bg-black border border-white/5 rounded-xl text-sm focus:border-brand-accent outline-none transition-all cursor-not-allowed text-zinc-500"
                                                 placeholder="+55 (00) 00000-0000"
                                             />
                                         </div>
@@ -89,7 +64,8 @@ export default async function SettingsPage() {
                                             <input
                                                 name="contact_address"
                                                 defaultValue={contactAddress}
-                                                className="w-full pl-12 pr-6 py-4 bg-black border border-white/5 rounded-xl text-sm focus:border-brand-accent outline-none transition-all"
+                                                readOnly
+                                                className="w-full pl-12 pr-6 py-4 bg-black border border-white/5 rounded-xl text-sm focus:border-brand-accent outline-none transition-all cursor-not-allowed text-zinc-500"
                                                 placeholder="Rua, Número, Bairro - Cidade/UF"
                                             />
                                         </div>
@@ -102,7 +78,8 @@ export default async function SettingsPage() {
                                             <input
                                                 name="social_instagram"
                                                 defaultValue={socialInstagram}
-                                                className="w-full pl-12 pr-6 py-4 bg-black border border-white/5 rounded-xl text-sm focus:border-brand-accent outline-none transition-all"
+                                                readOnly
+                                                className="w-full pl-12 pr-6 py-4 bg-black border border-white/5 rounded-xl text-sm focus:border-brand-accent outline-none transition-all cursor-not-allowed text-zinc-500"
                                                 placeholder="@yokomitsu"
                                             />
                                         </div>
@@ -114,11 +91,12 @@ export default async function SettingsPage() {
                         <Reveal delay={0.4} width="100%">
                             <div className="flex justify-end pt-4">
                                 <button
-                                    type="submit"
-                                    className="flex items-center gap-3 bg-white text-black px-10 py-5 font-black uppercase tracking-[0.2em] text-xs hover:bg-brand-accent hover:text-white transition-all shadow-xl shadow-white/5"
+                                    type="button"
+                                    className="flex items-center gap-3 bg-zinc-800 text-zinc-500 px-10 py-5 font-black uppercase tracking-[0.2em] text-xs cursor-not-allowed shadow-xl"
+                                    disabled
                                 >
                                     <Save className="w-4 h-4" />
-                                    Salvar Alterações
+                                    Salvar Bloqueado (Mockup)
                                 </button>
                             </div>
                         </Reveal>
@@ -164,8 +142,8 @@ export default async function SettingsPage() {
                                 <p className="text-xs text-gray-500 leading-relaxed uppercase font-bold tracking-tight">
                                     Limpe o cache global para forçar a atualização imediata de todas as páginas em todos os idiomas.
                                 </p>
-                                <button className="mt-6 text-[10px] font-black uppercase tracking-[0.3em] text-brand-accent hover:text-white transition-colors">
-                                    Invalidar Cache Local &rarr;
+                                <button className="mt-6 text-[10px] font-black uppercase tracking-[0.3em] text-brand-accent/50 cursor-not-allowed">
+                                    Invalidar Cache (Mockup) &rarr;
                                 </button>
                             </div>
                         </Reveal>

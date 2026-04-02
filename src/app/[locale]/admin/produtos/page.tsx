@@ -1,30 +1,19 @@
-import { prisma } from "@/lib/prisma";
-import { Plus, Search, Edit, Trash2, PackageSearch, ArrowRight, ExternalLink } from "lucide-react";
+import { Plus, Search, Edit, Trash2, PackageSearch, ExternalLink } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import Reveal from "@/components/ui/Reveal";
+import { MOCK_PRODUCTS } from "@/lib/mock-data";
 
 export default async function AdminProductsPage(props: {
   searchParams: Promise<{ q?: string }>;
 }) {
   const searchParams = await props.searchParams;
-  const q = searchParams?.q || "";
+  const q = searchParams?.q?.toLowerCase() || "";
 
-  const products = await prisma.product.findMany({
-    where: {
-      OR: [
-        { code: { contains: q, mode: 'insensitive' } },
-        { name: { contains: q, mode: 'insensitive' } },
-      ]
-    },
-    include: {
-      category: true,
-      _count: {
-        select: { applications: true }
-      }
-    },
-    orderBy: { code: 'asc' },
-    take: 50
-  });
+  // Mock data filtered
+  const products = MOCK_PRODUCTS.filter(p =>
+    p.code.toLowerCase().includes(q) ||
+    p.name.toLowerCase().includes(q)
+  );
 
   return (
     <div className="space-y-10">
@@ -32,13 +21,13 @@ export default async function AdminProductsPage(props: {
         <div>
           <Reveal direction="left">
             <h1 className="font-display text-4xl font-black text-white uppercase tracking-tighter mb-2">Inventário</h1>
-            <p className="text-gray-500 font-medium">Gestão técnica de componentes Yokomitsu.</p>
+            <p className="text-gray-500 font-medium">Gestão técnica de componentes. (Modo Mockup)</p>
           </Reveal>
         </div>
         <Reveal direction="right">
-          <button className="flex items-center gap-2 bg-brand-accent text-white px-6 py-4 font-black uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all">
+          <button className="flex items-center gap-2 bg-brand-accent/50 text-white/50 px-6 py-4 font-black uppercase tracking-widest text-xs cursor-not-allowed">
             <Plus className="w-4 h-4" />
-            Adicionar Componente
+            Adicionar (Desativado)
           </button>
         </Reveal>
       </div>
@@ -53,7 +42,7 @@ export default async function AdminProductsPage(props: {
               type="text"
               name="q"
               defaultValue={q}
-              placeholder="Pesquisar por Código, Nome ou OEM..."
+              placeholder="Pesquisar nos mockups por Código ou Nome..."
               className="w-full pl-12 pr-6 py-4 rounded-xl border border-white/5 bg-black text-sm text-white focus:border-brand-accent outline-none transition-all placeholder:text-zinc-700"
             />
           </form>
@@ -75,7 +64,7 @@ export default async function AdminProductsPage(props: {
                 <tr>
                   <td colSpan={4} className="p-20 text-center">
                     <PackageSearch className="w-12 h-12 text-zinc-800 mx-auto mb-4" />
-                    <p className="text-zinc-600 font-bold uppercase tracking-widest text-xs">Nenhum componente localizado</p>
+                    <p className="text-zinc-600 font-bold uppercase tracking-widest text-xs">Nenhum componente mockup localizado</p>
                   </td>
                 </tr>
               ) : (
@@ -94,7 +83,7 @@ export default async function AdminProductsPage(props: {
                     </td>
                     <td className="p-6 text-center">
                       <span className="text-xs font-bold text-zinc-400 bg-black/40 px-3 py-1 rounded-full border border-white/5">
-                        {product._count.applications} VÉICULOS
+                        {product.applications.length} VÉICULOS
                       </span>
                     </td>
                     <td className="p-6 text-right">
@@ -102,10 +91,10 @@ export default async function AdminProductsPage(props: {
                         <Link href={`/produtos/${product.id}`} target="_blank" className="p-3 bg-zinc-800/50 text-zinc-500 hover:text-white hover:bg-zinc-800 rounded-xl transition-all" title="Visualizar">
                           <ExternalLink className="w-4 h-4" />
                         </Link>
-                        <button className="p-3 bg-zinc-800/50 text-zinc-500 hover:text-blue-400 hover:bg-blue-400/5 rounded-xl transition-all" title="Editar">
+                        <button className="p-3 bg-zinc-800/20 text-zinc-700 cursor-not-allowed rounded-xl transition-all" title="Editar bloqueado">
                           <Edit className="w-4 h-4" />
                         </button>
-                        <button className="p-3 bg-zinc-800/50 text-zinc-500 hover:text-red-500 hover:bg-red-500/5 rounded-xl transition-all" title="Excluir">
+                        <button className="p-3 bg-zinc-800/20 text-zinc-700 cursor-not-allowed rounded-xl transition-all" title="Excluir bloqueado">
                           <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
@@ -117,13 +106,9 @@ export default async function AdminProductsPage(props: {
           </table>
         </div>
 
-        {/* Pagination Placeholder */}
+        {/* Info */}
         <div className="p-6 bg-black border-t border-white/5 flex justify-between items-center">
-          <span className="text-[10px] font-black uppercase tracking-widest text-zinc-600">Mostrando {products.length} componentes</span>
-          <div className="flex gap-2">
-            <button className="px-4 py-2 bg-zinc-900 border border-white/5 text-[10px] font-black uppercase tracking-widest text-zinc-500 rounded-lg cursor-not-allowed">Anterior</button>
-            <button className="px-4 py-2 bg-zinc-900 border border-white/5 text-[10px] font-black uppercase tracking-widest text-zinc-500 rounded-lg cursor-not-allowed">Próximo</button>
-          </div>
+          <span className="text-[10px] font-black uppercase tracking-widest text-zinc-600">Mostrando {products.length} componentes estáticos</span>
         </div>
       </div>
     </div>

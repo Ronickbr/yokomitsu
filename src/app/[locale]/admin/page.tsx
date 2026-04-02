@@ -1,11 +1,11 @@
-import { prisma } from "@/lib/prisma";
 import { Package, FolderTree, Activity, ArrowUpRight, TrendingUp } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import { MOCK_PRODUCTS, MOCK_CATEGORIES } from "@/lib/mock-data";
 
 export default async function AdminDashboard() {
-  const productsCount = await prisma.product.count();
-  const categoriesCount = await prisma.category.count();
-  const applicationsCount = await prisma.application.count();
+  const productsCount = MOCK_PRODUCTS.length;
+  const categoriesCount = MOCK_CATEGORIES.length;
+  const applicationsCount = MOCK_PRODUCTS.reduce((acc, p) => acc + p.applications.length, 0);
 
   const stats = [
     {
@@ -39,7 +39,7 @@ export default async function AdminDashboard() {
       <header>
         <Reveal direction="left">
           <h1 className="font-display text-4xl font-black text-white uppercase tracking-tighter mb-2">Visão Geral</h1>
-          <p className="text-gray-500 font-medium">Bem-vindo ao centro de comando Yokomitsu.</p>
+          <p className="text-gray-500 font-medium">Bem-vindo ao centro de comando Yokomitsu. (Modo Mockup)</p>
         </Reveal>
       </header>
 
@@ -64,7 +64,7 @@ export default async function AdminDashboard() {
 
               <div className="mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-emerald-500">
                 <TrendingUp className="w-3 h-3" />
-                <span>Dados atualizados em tempo real</span>
+                <span>Dados de demonstração (Mockup)</span>
               </div>
             </div>
           </Reveal>
@@ -93,9 +93,9 @@ export default async function AdminDashboard() {
             <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6">
               <Activity className="w-10 h-10 text-gray-600" />
             </div>
-            <h3 className="text-lg font-bold text-white mb-2">Novas Funcionalidades</h3>
+            <h3 className="text-lg font-bold text-white mb-2">Modo Visualização</h3>
             <p className="text-gray-500 text-sm max-w-xs">
-              Estamos atualizando as ferramentas de edição em massa. Em breve disponíveis.
+              O painel administrativo está operando com dados estáticos para demonstração de UI.
             </p>
           </div>
         </div>
