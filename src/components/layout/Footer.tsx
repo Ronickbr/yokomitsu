@@ -35,7 +35,7 @@ export default async function Footer() {
                 height={50}
                 className="h-12 w-auto object-contain"
               />
-              <div className="relative w-10 h-10 grayscale opacity-40 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500">
+              <div className="relative w-14 h-14 grayscale opacity-40 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500">
                 <Image src="/mascote.png" alt="Mascote" fill className="object-contain" />
               </div>
             </Link>

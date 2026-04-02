@@ -44,16 +44,6 @@ export default function Home() {
                   YOKO<br /><span className="text-brand-accent">MITSU</span>
                 </h1>
               </Reveal>
-              <Reveal delay={0.6} direction="left" className="pb-2">
-                <div className="relative w-32 h-32 md:w-56 md:h-56 lg:w-72 lg:h-72 drop-shadow-[0_0_30px_rgba(251,1,1,0.3)] anim-float transform md:-ml-8 lg:-ml-12">
-                  <Image
-                    src="/mascote.png"
-                    alt="Mascote Yokomitsu"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </Reveal>
             </div>
 
             <div className="flex flex-col md:flex-row gap-8 items-center md:items-center">

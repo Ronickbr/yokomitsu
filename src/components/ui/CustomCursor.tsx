@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
 
 export default function CustomCursor() {
@@ -10,12 +10,10 @@ export default function CustomCursor() {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    const springConfig = { damping: 20, stiffness: 200, mass: 0.5 };
+    // Smooth movement configuration
+    const springConfig = { damping: 25, stiffness: 250, mass: 0.5 };
     const cursorX = useSpring(mouseX, springConfig);
     const cursorY = useSpring(mouseY, springConfig);
-
-    const dotX = useSpring(mouseX, { damping: 30, stiffness: 400 });
-    const dotY = useSpring(mouseY, { damping: 30, stiffness: 400 });
 
     useEffect(() => {
         const moveMouse = (e: MouseEvent) => {
@@ -26,8 +24,8 @@ export default function CustomCursor() {
 
         const handleHover = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
-            const isPickable = target.closest("a, button, [data-cursor-hover]");
-            setIsHovering(!!isPickable);
+            const isSelectable = target.closest("a, button, [role='button'], [data-cursor-hover]");
+            setIsHovering(!!isSelectable);
         };
 
         window.addEventListener("mousemove", moveMouse);
@@ -39,49 +37,91 @@ export default function CustomCursor() {
         };
     }, [isVisible]);
 
+    if (!isVisible) return null;
+
     return (
         <>
-            {/* Primary smooth circle */}
+            {/* GPS Arrow Container */}
             <motion.div
-                className="fixed top-0 left-0 w-8 h-8 border border-brand-accent/50 rounded-full pointer-events-none z-[9999] hidden lg:block"
+                className="fixed top-0 left-0 pointer-events-none z-[99999] hidden lg:block"
                 style={{
                     x: cursorX,
                     y: cursorY,
-                    translateX: "-50%",
-                    translateY: "-50%",
+                    translateX: "-20%", // Offset to make tip the active point
+                    translateY: "-20%",
                 }}
-                animate={{
-                    scale: isHovering ? 2.5 : 1,
-                    backgroundColor: isHovering ? "rgba(227, 30, 36, 0.15)" : "transparent",
-                    borderColor: isHovering ? "rgba(227, 30, 36, 0.4)" : "rgba(227, 30, 36, 0.5)",
-                }}
-            />
+            >
+                {/* Metallic GPS Arrow SVG */}
+                <motion.div
+                    animate={{
+                        scale: isHovering ? 1.2 : 1,
+                        rotate: isHovering ? 10 : -25, // Inclinado para a esquerda por padrão
+                    }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                    <svg
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))" }}
+                    >
+                        {/* Define metallic gradient */}
+                        <defs>
+                            <linearGradient id="metallic-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style={{ stopColor: "#e2e8f0", stopOpacity: 1 }} />
+                                <stop offset="50%" style={{ stopColor: "#94a3b8", stopOpacity: 1 }} />
+                                <stop offset="100%" style={{ stopColor: "#475569", stopOpacity: 1 }} />
+                            </linearGradient>
 
-            {/* Precision Dot */}
-            <motion.div
-                className="fixed top-0 left-0 w-1.5 h-1.5 bg-brand-accent rounded-full pointer-events-none z-[9999] hidden lg:block"
-                style={{
-                    x: dotX,
-                    y: dotY,
-                    translateX: "-50%",
-                    translateY: "-50%",
-                }}
-                animate={{
-                    scale: isHovering ? 0 : 1,
-                }}
-            />
+                            {/* Inner glow for premium look */}
+                            <filter id="inner-glow">
+                                <feFlood floodColor="white" floodOpacity="0.5" />
+                                <feComposite in2="SourceGraphic" operator="out" />
+                                <feGaussianBlur stdDeviation="1" result="blur" />
+                                <feComposite operator="atop" in2="SourceGraphic" />
+                            </filter>
+                        </defs>
 
-            {/* Global Style to hide real cursor only when custom is ready */}
+                        {/* GPS Arrow Path (Navigation Style) */}
+                        <path
+                            d="M12 2L4.5 20.29L5.21 21L12 18L18.79 21L19.5 20.29L12 2Z"
+                            fill="url(#metallic-gradient)"
+                            stroke="rgba(255,255,255,0.2)"
+                            strokeWidth="0.5"
+                            filter="url(#inner-glow)"
+                        />
+                    </svg>
+                </motion.div>
+
+                {/* Trail/Feedback Particle when hovering */}
+                <motion.div
+                    className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full bg-brand-accent/20 border border-brand-accent/30 -z-10"
+                    style={{ translateX: "-50%", translateY: "-50%" }}
+                    animate={{
+                        scale: isHovering ? [1, 2.5, 1] : 0,
+                        opacity: isHovering ? [0.5, 0, 0.5] : 0,
+                    }}
+                    transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                />
+            </motion.div>
+
+            {/* Global Style to hide real cursor */}
             <style jsx global>{`
-        @media (min-width: 1024px) {
-          * {
-            cursor: none !important;
-          }
-          a, button, [role="button"] {
-            cursor: none !important;
-          }
-        }
-      `}</style>
+                @media (min-width: 1024px) {
+                    html, body, * {
+                        cursor: none !important;
+                    }
+                    a, button, [role="button"] {
+                        cursor: none !important;
+                    }
+                }
+            `}</style>
         </>
     );
 }
