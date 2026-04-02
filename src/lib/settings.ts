@@ -1,5 +1,3 @@
-import { prisma } from "./prisma";
-
 export async function getSettings() {
     // Mock settings for demonstration
     return {
