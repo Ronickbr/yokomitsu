@@ -1,0 +1,64 @@
+# agents/antigravity.yaml
+# Sidecar config for Google Antigravity (AgentKit 2.0 compatible)
+# Place alongside SKILL.md inside the skill folder.
+#
+# This file configures how Antigravity's Manager View
+# presents and dispatches this skill.
+
+skill: web-page-design
+display_name: "Web Page Design"
+icon: "🎨"
+category: frontend
+
+# Recommended model for this skill
+preferred_model: claude-opus-4-6
+fallback_model: gemini-3-pro
+
+# Antigravity Manager View — mission template
+mission_template: |
+  Design and build a complete, production-ready web page.
+  
+  Use the web-page-design skill instructions.
+  
+  Inputs to collect before starting:
+  - Page purpose (landing, portfolio, product, etc.)
+  - Target audience
+  - Primary CTA
+  - Any visual references, screenshots, or brand guidelines
+  - Preferred output format (HTML/CSS/JS or React)
+  
+  Deliverables (Artifacts):
+  1. Implementation plan (sections list + aesthetic direction)
+  2. Complete page code (single file)
+  3. Browser screenshot of the rendered result
+  4. Summary: fonts, colors, sections, responsive notes
+
+# Browser Agent — auto-validate the output
+browser_validation:
+  enabled: true
+  action: screenshot
+  viewport:
+    desktop: "1440x900"
+    mobile: "375x812"
+  checklist:
+    - "Hero visible above the fold"
+    - "Primary CTA button present"
+    - "Page renders without console errors"
+    - "Mobile layout does not overflow"
+
+# Parallel agent support (AgentKit 2.0)
+# Splits large pages into parallel sub-tasks
+parallel_agents:
+  enabled: true
+  strategy: by_section
+  max_agents: 3
+  merge_strategy: sequential_assembly
+
+# Knowledge base — save reusable patterns
+knowledge_base:
+  save_on_complete: true
+  tags:
+    - frontend
+    - web-design
+    - html
+    - css

@@ -1,0 +1,167 @@
+{
+  "HomePage": {
+    "title": "Yokomitsu",
+    "slogan": "Your direction, your path, your control",
+    "tagline": "Industrial Excellence",
+    "heroSubtitle": "Global quality in suspension and steering auto parts.",
+    "ctaDistributor": "Become a Distributor",
+    "ctaContact": "Contact",
+    "globalPresence": "Global Presence",
+    "globalPresenceDesc": "Present in 22 countries through the IPS network, ensuring quality and technology on every continent.",
+    "stats": {
+      "countries": "Countries",
+      "years": "Years of Market",
+      "products": "Products in Portfolio"
+    },
+    "productLines": "Our Product Lines",
+    "productLinesDesc": "Precision engineering for critical movement and safety systems.",
+    "viewFullCatalog": "View Full Catalog",
+    "products": {
+      "suspension": "Suspension",
+      "steering": "Steering",
+      "steeringDesc": "High-response hydraulic and mechanical systems.",
+      "transmission": "Transmission",
+      "transmissionDesc": "Efficient power transfer",
+      "electrical": "Electrical Systems",
+      "electricalDesc": "Advanced technology for your vehicle's ignition and control."
+    },
+    "officialImporterTitle": "Official Importer",
+    "officialImporter": "IPS do Brasil is the official importer of Yokomitsu in the national territory, ensuring excellence in distribution and support.",
+    "knowIps": "Meet IPS do Brasil",
+    "readyToAccelerate": "Want to be a Distributor?",
+    "beDistributorDesc": "Contact IPS do Brasil and find out how to distribute Yokomitsu products in your region.",
+    "beDistributor": "Become a distributor",
+    "downloadCatalog": "Download PDF Catalog",
+    "productionStandardTitle": "Production",
+    "productionStandardTitleHighlight": "Standards",
+    "productionStandardSubtitle": "Technology and Micrometric Precision",
+    "highlights": {
+      "qc": {
+        "title": "Quality",
+        "title2": "Control",
+        "desc": "Laser inspection and fatigue testing to ensure absolute safety in extreme conditions."
+      },
+      "tech": {
+        "title": "Cutting-edge",
+        "title2": "Technology",
+        "desc": "Advanced robotics and German automation to ensure micrometric precision in every manufactured gear."
+      },
+      "warranty": {
+        "title": "Total",
+        "title2": "Warranty",
+        "desc": "Our confidence in our engineering allows us to offer extended coverage and direct technical support."
+      },
+      "material": {
+        "title": "Elite",
+        "title2": "Raw-Material",
+        "desc": "High purity steel and selected lightweight alloys to reduce wear and increase performance."
+      },
+      "sustainability": {
+        "title": "Sustain",
+        "title2": "ability",
+        "desc": "A real commitment to CO2 reduction and smart industrial waste management."
+      }
+    }
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Catalog",
+    "contact": "Contact"
+  },
+  "AboutPage": {
+    "tagline": "Building the Future",
+    "title": "About Yokomitsu",
+    "subtitle": "Over 40 years of excellence and innovation in the global auto parts market.",
+    "yearsOfInnovation": "Years of Innovation",
+    "historyTitle": "Our History",
+    "historyText": "Founded over 40 years ago, Yokomitsu was born with the mission of providing high-quality automotive components to the global market. With cutting-edge production technology and rigorous quality control standards, the brand has won the trust of distributors and mechanics in 22 countries around the world.\n\nBreaking the prejudice about Asian products, Yokomitsu proves that quality, technology, and reliability can coexist with competitive prices. Each part is developed with the highest engineering standards, ensuring performance and durability.",
+    "japaneseExcellence": "Japanese Excellence",
+    "japaneseExcellenceDesc": "Each Yokomitsu component carries the legacy of precision and durability that has defined our brand for decades.",
+    "cardCountries": "22 countries",
+    "cardYears": "40+ years",
+    "cardOEM": "OEM Standard",
+    "cardIPS": "IPS Brazil",
+    "timeline": {
+      "1": {
+        "year": "1980",
+        "title": "Foundation",
+        "text": "Yokomitsu is founded with a focus on high-quality suspension and steering components."
+      },
+      "2": {
+        "year": "1990",
+        "title": "Global Expansion",
+        "text": "Beginning of international expansion, establishing partnerships with importers in several countries."
+      },
+      "3": {
+        "year": "2000",
+        "title": "22 Countries",
+        "text": "Consolidation of global presence in 22 countries through the IPS (International Parts Suppliers) network."
+      },
+      "4": {
+        "year": "2010",
+        "title": "Technological Innovation",
+        "text": "Investment in advanced production technology, raising quality standards to OEM level."
+      },
+      "5": {
+        "year": "TODAY",
+        "title": "Yokomitsu Brazil",
+        "text": "Represented exclusively by IPS do Brasil, serving the Brazilian market with excellence."
+      }
+    },
+    "qualityTitle": "Premium Quality",
+    "qualityText": "We develop suspension and steering parts focused on absolute safety. Our international certifications prove our unwavering commitment to technical excellence.",
+    "globalTitle": "Global Dimension",
+    "globalText": "Present in 22 countries, our engineering shares global intelligence to adapt efficient solutions to the specific needs of each market, including the challenging roads of Brazil.",
+    "statsTitle": "Dimension in Numbers",
+    "marketsServed": "Markets Served",
+    "productsInPortfolio": "Products in Portfolio",
+    "certificationTitle": "International Quality Certification",
+    "certificationDesc": "We operate under the most rigorous ISO manufacturing standards, ensuring that each piece delivered to the Brazilian market exceeds safety and durability expectations."
+  },
+  "ContactPage": {
+    "tagline": "Direct Link",
+    "title": "Contact Us",
+    "subtitle": "We are available to serve distributors, retailers, and mechanics.",
+    "channelsTitle": "Our Channels",
+    "formTitle": "Send a Message",
+    "formName": "Full Name",
+    "formEmail": "E-mail",
+    "formPhone": "Phone / WhatsApp",
+    "formMessage": "Message",
+    "formSubmit": "Send Message",
+    "submitting": "Sending...",
+    "sent": "Sent!",
+    "phone": "Phone",
+    "email": "E-mail",
+    "instagram": "Instagram",
+    "emailPlaceholder": "your@email.com",
+    "operationBrazil": "IPS do Brasil - São Paulo, SP",
+    "companyName": "Yokomitsu Industrial"
+  },
+  "Footer": {
+    "description": "Global auto parts brand for suspension and steering, present in 22 countries. Operated in Brazil by IPS do Brasil.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "rights": "Yokomitsu. All rights reserved."
+  },
+  "ProductsPage": {
+    "title": "Product Catalog",
+    "subtitle": "Find the perfect part for your needs. Search by Yokomitsu code, OEM, similar or vehicle.",
+    "searchPlaceholder": "Search by code, OEM or application...",
+    "searchButton": "Search",
+    "noResults": "No products found.",
+    "categories": "Categories",
+    "allCategories": "All Categories",
+    "details": "View Details",
+    "backToCatalog": "Back to Catalog",
+    "applications": "Applications",
+    "applicationsDesc": "Compatible vehicles for this product",
+    "maker": "Maker",
+    "model": "Model",
+    "year": "Year",
+    "notes": "Notes",
+    "oemCodes": "OEM Codes",
+    "similarCodes": "Similar Codes"
+  }
+}

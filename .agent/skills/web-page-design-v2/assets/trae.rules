@@ -1,0 +1,33 @@
+# web-page-design — Trae .rules
+# Place this file at the root of your project as `.rules`
+# or merge its contents into your existing .rules file.
+#
+# These rules configure Trae's agent behavior specifically
+# for web page design tasks.
+
+## Stack preferences
+- Always output valid semantic HTML5 with a CSS reset
+- Default to vanilla HTML/CSS/JS unless the user specifies a framework
+- If a framework is requested, prefer: Next.js > Astro > plain React
+- Always use CSS custom properties (variables) for colors, fonts, and spacing
+- Always import Google Fonts via <link> — never use system/generic fonts
+
+## Design rules
+- Never use Inter, Roboto, or Arial as display/headline fonts
+- Always provide mobile-first responsive styles (min-width breakpoints)
+- Every page must have a clear primary CTA above the fold
+- Minimum body font size: 16px
+- Always include :hover and :focus states on interactive elements
+
+## Code quality
+- Use semantic HTML tags: <header>, <nav>, <main>, <section>, <footer>
+- Include alt text on all images
+- All images below the hero must use loading="lazy"
+- Include <meta name="viewport" content="width=device-width, initial-scale=1">
+- Add <!-- Section: [name] --> comments before each major section
+
+## Agent behavior
+- When given a vague request ("make me a website"), ask for: purpose, audience, and key CTA before generating
+- When given a screenshot or mockup, extract the color palette and typography before rebuilding
+- Always output a single self-contained file unless the user requests a multi-file project
+- After generating, summarize: aesthetic direction chosen, fonts used, color palette, and sections included

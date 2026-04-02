@@ -1,0 +1,167 @@
+{
+  "HomePage": {
+    "title": "Yokomitsu",
+    "slogan": "Sua direção, seu caminho, seu controle",
+    "tagline": "Excelência Industrial",
+    "heroSubtitle": "Qualidade global em autopeças de suspensão e direção.",
+    "ctaDistributor": "Seja um Distribuidor",
+    "ctaContact": "Contato",
+    "globalPresence": "Presença Global",
+    "globalPresenceDesc": "Presente em 22 países através da rede IPS, garantindo qualidade e tecnologia em cada continente.",
+    "stats": {
+      "countries": "Países",
+      "years": "Anos de Mercado",
+      "products": "Produtos no Portfólio"
+    },
+    "productLines": "Nossas Linhas de Produtos",
+    "productLinesDesc": "Engenharia de precisão para sistemas críticos de movimento e segurança.",
+    "viewFullCatalog": "Ver Catálogo Completo",
+    "products": {
+      "suspension": "Suspensão",
+      "steering": "Direção",
+      "steeringDesc": "Sistemas hidráulicos e mecânicos de alta resposta.",
+      "transmission": "Transmissão",
+      "transmissionDesc": "Transferência de força eficiente",
+      "electrical": "Sistemas Elétricos",
+      "electricalDesc": "Tecnologia avançada para a ignição e controle do seu veículo."
+    },
+    "officialImporterTitle": "Importador Oficial",
+    "officialImporter": "A IPS do Brasil é a importadora oficial da Yokomitsu no território nacional, assegurando distribuição e suporte de excelência.",
+    "knowIps": "Conheça a IPS do Brasil",
+    "readyToAccelerate": "Quer ser Distribuidor?",
+    "beDistributorDesc": "Entre em contato com a IPS do Brasil e saiba como distribuir os produtos Yokomitsu na sua região.",
+    "beDistributor": "Quero ser distribuidor",
+    "downloadCatalog": "Baixar Catálogo PDF",
+    "productionStandardTitle": "Padrão de",
+    "productionStandardTitleHighlight": "Produção",
+    "productionStandardSubtitle": "Tecnologia e Precisão Micrométrica",
+    "highlights": {
+      "qc": {
+        "title": "Controle de",
+        "title2": "Qualidade",
+        "desc": "Inspeção laser e testes de fadiga para garantir segurança absoluta em condições extremas de uso."
+      },
+      "tech": {
+        "title": "Tecnologia",
+        "title2": "de Ponta",
+        "desc": "Robótica avançada e automação alemã para garantir precisão micrométrica em cada engrenagem fabricada."
+      },
+      "warranty": {
+        "title": "Garantia",
+        "title2": "Total",
+        "desc": "Nossa confiança em nossa engenharia permite oferecer coberturas estendidas e suporte técnico direto."
+      },
+      "material": {
+        "title": "Matéria-Prima",
+        "title2": "de Elite",
+        "desc": "Aço de alta pureza e ligas leves selecionadas para reduzir o desgaste e aumentar a performance."
+      },
+      "sustainability": {
+        "title": "Sustenta",
+        "title2": "bilidade",
+        "desc": "Compromisso real com a redução de CO2 e descarte inteligente de resíduos industriais."
+      }
+    }
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "Sobre a Marca",
+    "products": "Catálogo",
+    "contact": "Contato"
+  },
+  "AboutPage": {
+    "tagline": "Construindo o Futuro",
+    "title": "Sobre a Yokomitsu",
+    "subtitle": "Mais de 40 anos de excelência e inovação no mercado global de autopeças.",
+    "yearsOfInnovation": "Anos de Inovação",
+    "historyTitle": "Nossa História",
+    "historyText": "Fundada há mais de 40 anos, a Yokomitsu nasceu com a missão de fornecer componentes automotivos de alta qualidade para o mercado global. Com tecnologia de produção de ponta e rigorosos padrões de controle de qualidade, a marca conquistou a confiança de distribuidores e mecânicos em 22 países ao redor do mundo.\n\nQuebrando o preconceito sobre produtos asiáticos, a Yokomitsu prova que qualidade, tecnologia e confiabilidade podem coexistir com preços competitivos. Cada peça é desenvolvida com os mais altos padrões de engenharia, garantindo performance e durabilidade.",
+    "japaneseExcellence": "Excelência Japonesa",
+    "japaneseExcellenceDesc": "Cada componente Yokomitsu carrega o legado de precisão e durabilidade que define a nossa marca há décadas.",
+    "cardCountries": "22 países",
+    "cardYears": "40+ anos",
+    "cardOEM": "Padrão OEM",
+    "cardIPS": "IPS Brasil",
+    "timeline": {
+      "1": {
+        "year": "1980",
+        "title": "Fundação",
+        "text": "A Yokomitsu é fundada com foco em componentes de suspensão e direção de alta qualidade."
+      },
+      "2": {
+        "year": "1990",
+        "title": "Expansão Global",
+        "text": "Início da expansão internacional, estabelecendo parcerias com importadoras em vários países."
+      },
+      "3": {
+        "year": "2000",
+        "title": "22 Países",
+        "text": "Consolidação da presença global em 22 países através da rede IPS (International Parts Suppliers)."
+      },
+      "4": {
+        "year": "2010",
+        "title": "Inovação Tecnológica",
+        "text": "Investimento em tecnologia de produção avançada, elevando os padrões de qualidade ao nível OEM."
+      },
+      "5": {
+        "year": "HOJE",
+        "title": "Yokomitsu Brasil",
+        "text": "Representada com exclusividade pela IPS do Brasil, atendendo o mercado brasileiro com excelência."
+      }
+    },
+    "qualityTitle": "Qualidade Premium",
+    "qualityText": "Desenvolvemos peças de suspensão e direção focadas em segurança absoluta. Nossas certificações internacionais comprovam o compromisso inabalável com a excelência técnica.",
+    "globalTitle": "Dimensão Global",
+    "globalText": "Presente em 22 países, nossa engenharia compartilha inteligência global para adaptar soluções eficientes às necessidades específicas de cada mercado, incluindo as vias desafiadoras do Brasil.",
+    "statsTitle": "Dimensão em Números",
+    "marketsServed": "Países Atendidos",
+    "productsInPortfolio": "Produtos no Portfólio",
+    "certificationTitle": "Certificação Internacional de Qualidade",
+    "certificationDesc": "Operamos sob os mais rigorosos padrões ISO de fabricação, garantindo que cada peça entregue ao mercado brasileiro supere as expectativas de segurança e durabilidade."
+  },
+  "ContactPage": {
+    "tagline": "Conexão Direta",
+    "title": "Fale Conosco",
+    "subtitle": "Estamos à disposição para atender distribuidores, lojistas e mecânicos.",
+    "channelsTitle": "Nossos Canais",
+    "formTitle": "Envie uma Mensagem",
+    "formName": "Nome Completo",
+    "formEmail": "E-mail",
+    "formPhone": "Telefone / WhatsApp",
+    "formMessage": "Mensagem",
+    "formSubmit": "Enviar Mensagem",
+    "submitting": "Enviando...",
+    "sent": "Enviado!",
+    "phone": "Telefone",
+    "email": "E-mail",
+    "instagram": "Instagram",
+    "emailPlaceholder": "seu@email.com",
+    "operationBrazil": "IPS do Brasil - São Paulo, SP",
+    "companyName": "Yokomitsu Industrial"
+  },
+  "Footer": {
+    "description": "Marca global de autopeças de suspensão e direção, presente em 22 países. Operada no Brasil pela IPS do Brasil.",
+    "quickLinks": "Links Rápidos",
+    "contact": "Contato",
+    "rights": "Yokomitsu. Todos os direitos reservados."
+  },
+  "ProductsPage": {
+    "title": "Catálogo",
+    "subtitle": "Encontre a peça ideal para sua necessidade. Busque por código Yokomitsu, OEM, similar ou veículo.",
+    "searchPlaceholder": "Buscar por código, OEM ou aplicação...",
+    "searchButton": "Buscar",
+    "noResults": "Nenhum produto encontrado.",
+    "categories": "Categorias",
+    "allCategories": "Todas as Categorias",
+    "details": "Ver Detalhes",
+    "backToCatalog": "Voltar ao Catálogo",
+    "applications": "Aplicações",
+    "applicationsDesc": "Veículos compatíveis com este produto",
+    "maker": "Montadora",
+    "model": "Modelo",
+    "year": "Ano",
+    "notes": "Observações",
+    "oemCodes": "Códigos OEM",
+    "similarCodes": "Códigos Similares"
+  }
+}
