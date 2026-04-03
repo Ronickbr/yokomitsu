@@ -17,15 +17,32 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function ProdutosPage(props: {
-  searchParams: Promise<{ q?: string; category?: string }>;
+  searchParams: Promise<{ q?: string; category?: string; maker?: string; model?: string; year?: string }>;
 }) {
   const searchParams = await props.searchParams;
   const q = searchParams?.q?.toLowerCase();
   const categoryId = searchParams?.category;
+  const brand = searchParams?.maker;
+  const model = searchParams?.model;
+  const year = searchParams?.year ? parseInt(searchParams.year) : undefined;
   const t = await getTranslations("ProductsPage");
 
   // Mock categories
   const categories = MOCK_CATEGORIES;
+
+  // Extract unique brands, models, and years for the filters
+  const makers = Array.from(new Set(MOCK_PRODUCTS.flatMap(p => p.applications.map(a => a.maker)))).sort();
+
+  // Filter models by selected brand if available
+  const availableModels = brand
+    ? Array.from(new Set(MOCK_PRODUCTS.flatMap(p => p.applications.filter(a => a.maker === brand).map(a => a.model)))).sort()
+    : Array.from(new Set(MOCK_PRODUCTS.flatMap(p => p.applications.map(a => a.model)))).sort();
+
+  // Calculate year range
+  const allYears = MOCK_PRODUCTS.flatMap(p => p.applications.flatMap(a => [a.yearStart, a.yearEnd]));
+  const minYear = Math.min(...allYears);
+  const maxYear = new Date().getFullYear() + 1; // Current year + 1 for future models
+  const years = Array.from({ length: maxYear - 2000 + 1 }, (_, i) => maxYear - i); // From 2000 to current+1
 
   // Filter products from mock data
   let products = MOCK_PRODUCTS;
@@ -41,6 +58,24 @@ export default async function ProdutosPage(props: {
 
   if (categoryId) {
     products = products.filter(p => p.categoryId === categoryId);
+  }
+
+  if (brand) {
+    products = products.filter(p =>
+      p.applications.some(app => app.maker === brand)
+    );
+  }
+
+  if (model) {
+    products = products.filter(p =>
+      p.applications.some(app => app.model === model)
+    );
+  }
+
+  if (year) {
+    products = products.filter(p =>
+      p.applications.some(app => year >= app.yearStart && (app.yearEnd === 0 || year <= app.yearEnd))
+    );
   }
 
   return (
@@ -97,7 +132,13 @@ export default async function ProdutosPage(props: {
                 <SearchForm
                   initialQ={q}
                   initialCategory={categoryId}
+                  initialMaker={brand}
+                  initialModel={model}
+                  initialYear={year?.toString()}
                   categories={categories.map(c => ({ id: c.id, name: c.name }))}
+                  makers={makers}
+                  models={availableModels}
+                  years={years}
                 />
               </div>
             </div>

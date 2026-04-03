@@ -36,6 +36,7 @@ O projeto utiliza o que há de mais moderno no ecossistema web:
 - [x] **Localização Avançada:** Seletor de idiomas integrado e tradução completa para o padrão industrial Yokomitsu.
 - [x] **Seção CTA de Distribuidores:** Novo convite para se tornar um distribuidor com descrição centrada na IPS do Brasil.
 - [x] **Cursor Customizado Otimizado:** Implementado com manipulação direta de DOM para latência zero, alinhamento de precisão e visual leve para uma navegação instantânea.
+- [x] **Filtros de Busca Avançada:** Implementação de seletores para Ano, Marca e Modelo acima do campo de busca, com lógica de filtragem dinâmica no catálogo.
 
 ### Fase 2 (Planejado/Início)
 - [ ] **Painel Administrativo:** Gestão de conteúdo e configurações via banco de dados.
