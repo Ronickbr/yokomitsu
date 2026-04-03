@@ -35,6 +35,7 @@ O projeto utiliza o que há de mais moderno no ecossistema web:
 - [x] **Catálogo Técnico:** Grid de 4 colunas com efeitos de scanner e HUD animado em tempo real.
 - [x] **Localização Avançada:** Seletor de idiomas integrado e tradução completa para o padrão industrial Yokomitsu.
 - [x] **Seção CTA de Distribuidores:** Novo convite para se tornar um distribuidor com descrição centrada na IPS do Brasil.
+- [x] **Cursor Customizado Otimizado:** Removido o atraso (delay) de movimento e a rotação automática para uma experiência de navegação mais direta e fluida.
 
 ### Fase 2 (Planejado/Início)
 - [ ] **Painel Administrativo:** Gestão de conteúdo e configurações via banco de dados.
