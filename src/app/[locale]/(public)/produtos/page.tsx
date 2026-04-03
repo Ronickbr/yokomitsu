@@ -5,7 +5,6 @@ import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { MOCK_PRODUCTS, MOCK_CATEGORIES } from "@/lib/mock-data";
 import Reveal from "@/components/ui/Reveal";
-import StatusTerminal from "./StatusTerminal";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -78,9 +77,6 @@ export default async function ProdutosPage(props: {
                 <p className="text-lg md:text-xl text-zinc-400 font-light max-w-xl leading-relaxed border-l-2 border-brand-accent pl-6 md:pl-8">
                   {t("subtitle")}
                 </p>
-                <div className="hidden lg:block">
-                  <StatusTerminal />
-                </div>
               </div>
             </Reveal>
           </div>
