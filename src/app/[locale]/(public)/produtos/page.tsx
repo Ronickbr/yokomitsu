@@ -3,10 +3,9 @@ import { PackageSearch, ArrowRight, Layers, Search, Filter } from "lucide-react"
 import { SearchForm } from "./SearchForm";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
-import Tilt from "@/components/ui/Tilt";
+import { MOCK_PRODUCTS, MOCK_CATEGORIES } from "@/lib/mock-data";
 import Reveal from "@/components/ui/Reveal";
 import StatusTerminal from "./StatusTerminal";
-import { MOCK_PRODUCTS, MOCK_CATEGORIES } from "@/lib/mock-data";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -121,89 +120,72 @@ export default async function ProdutosPage(props: {
             </Reveal>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {products.map((product, index) => (
-                <Reveal key={product.id} delay={index % 10 * 0.05} direction="up" height="100%" width="100%">
-                  <Tilt className="h-full w-full">
-                    <Link
-                      href={`/produtos/${product.id}`}
-                      className="group bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-[2rem] p-6 hover:border-brand-accent/30 transition-all duration-500 flex flex-col h-full w-full relative overflow-hidden"
-                    >
-                      {/* Grid overlay for tech look */}
-                      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
+              {products.map((product) => (
+                <Link
+                  key={product.id}
+                  href={`/produtos/${product.id}`}
+                  className="bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-[2rem] p-6 flex flex-col h-full w-full relative overflow-hidden"
+                >
+                  {/* Grid overlay for tech look */}
+                  <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
 
-                      {/* Top Bar Label */}
-                      <div className="flex justify-between items-center mb-8 relative z-10">
-                        <span className="text-[9px] font-black text-brand-accent uppercase tracking-[0.3em] bg-brand-accent/10 px-2 py-0.5 rounded">
-                          {product.category.name}
-                        </span>
-                        <span className="text-[9px] font-mono text-zinc-600 uppercase">
-                          Ref: {product.id.slice(0, 8)}
-                        </span>
+                  {/* Top Bar Label */}
+                  <div className="flex justify-between items-center mb-8 relative z-10">
+                    <span className="text-[9px] font-black text-brand-accent uppercase tracking-[0.3em] bg-brand-accent/10 px-2 py-0.5 rounded">
+                      {product.category.name}
+                    </span>
+                    <span className="text-[9px] font-mono text-zinc-600 uppercase">
+                      Ref: {product.id.slice(0, 8)}
+                    </span>
+                  </div>
+
+                  {/* Product Image Area */}
+                  <div className="relative aspect-square mb-8 bg-black/40 rounded-2xl border border-white/5 flex items-center justify-center overflow-hidden">
+                    {product.imageUrl ? (
+                      <div className="relative w-full h-full p-6">
+                        <img src={product.imageUrl} alt={product.name} className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" />
                       </div>
+                    ) : (
+                      <PackageSearch className="w-16 h-16 text-zinc-900" />
+                    )}
+                  </div>
 
-                      {/* Product Image Area */}
-                      <div className="relative aspect-square mb-8 bg-black/40 rounded-2xl border border-white/5 flex items-center justify-center overflow-hidden group-hover:border-brand-accent/20 transition-colors">
-                        {product.imageUrl ? (
-                          <div className="relative w-full h-full p-6 transform transition-transform duration-700 group-hover:scale-110">
-                            <img src={product.imageUrl} alt={product.name} className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" />
-                          </div>
-                        ) : (
-                          <PackageSearch className="w-16 h-16 text-zinc-900 group-hover:text-zinc-800 transition-colors" />
-                        )}
+                  {/* Info Area */}
+                  <div className="flex-1 flex flex-col relative z-10">
+                    <h3 className="text-2xl font-black text-white leading-none tracking-tighter mb-4">
+                      {product.code}
+                    </h3>
 
-                        {/* Hover Scanner Effect */}
-                        <div className="absolute top-0 left-0 w-full h-0.5 bg-brand-accent/50 opacity-0 group-hover:animate-[scan_2s_linear_infinite] group-hover:opacity-100 shadow-[0_0_10px_#e3000f]" />
-                      </div>
+                    <h4 className="text-sm font-medium text-zinc-400 mb-6 line-clamp-2 leading-snug">
+                      {product.name}
+                    </h4>
 
-                      {/* Info Area */}
-                      <div className="flex-1 flex flex-col relative z-10">
-                        <h3 className="text-2xl font-black text-white group-hover:text-brand-accent transition-colors leading-none tracking-tighter mb-4">
-                          {product.code}
-                        </h3>
-
-                        <h4 className="text-sm font-medium text-zinc-400 mb-6 line-clamp-2 leading-snug">
-                          {product.name}
-                        </h4>
-
-                        <div className="space-y-2 mt-auto pb-6">
-                          {product.oem && (
-                            <div className="flex items-center justify-between text-[10px] pb-2 border-b border-white/5">
-                              <span className="font-bold text-zinc-600 uppercase tracking-widest">OEM</span>
-                              <span className="text-zinc-300 font-mono truncate max-w-[120px]">{product.oem.split(',')[0]}</span>
-                            </div>
-                          )}
-                          <div className="flex items-center justify-between text-[10px]">
-                            <span className="font-bold text-zinc-600 uppercase tracking-widest">Aplicações</span>
-                            <span className="text-zinc-500 font-mono">{product.applications.length} registros</span>
-                          </div>
+                    <div className="space-y-2 mt-auto pb-6">
+                      {product.oem && (
+                        <div className="flex items-center justify-between text-[10px] pb-2 border-b border-white/5">
+                          <span className="font-bold text-zinc-600 uppercase tracking-widest">OEM</span>
+                          <span className="text-zinc-300 font-mono truncate max-w-[120px]">{product.oem.split(',')[0]}</span>
                         </div>
-
-                        {/* View Details Button */}
-                        <div className="pt-6 border-t border-white/5 flex items-center justify-between group/btn">
-                          <span className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em] group-hover/btn:text-white transition-colors">{t("details")}</span>
-                          <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center bg-zinc-950 group-hover/btn:bg-brand-accent group-hover/btn:border-brand-accent transition-all duration-300">
-                            <ArrowRight className="w-4 h-4 text-white transform group-hover/btn:translate-x-0.5 transition-transform" />
-                          </div>
-                        </div>
+                      )}
+                      <div className="flex items-center justify-between text-[10px]">
+                        <span className="font-bold text-zinc-600 uppercase tracking-widest">Aplicações</span>
+                        <span className="text-zinc-500 font-mono">{product.applications.length} registros</span>
                       </div>
-                    </Link>
-                  </Tilt>
-                </Reveal>
+                    </div>
+
+                    {/* View Details Button */}
+                    <div className="pt-6 border-t border-white/5 flex items-center justify-between">
+                      <span className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em]">{t("details")}</span>
+                      <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center bg-zinc-950">
+                        <ArrowRight className="w-4 h-4 text-white" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
               ))}
             </div>
           )}
         </div>
-
-        {/* CSS for Scan Animation */}
-        <style dangerouslySetInnerHTML={{
-          __html: `
-          @keyframes scan {
-            0% { top: 0%; opacity: 0; }
-            5% { opacity: 1; }
-            95% { opacity: 1; }
-            100% { top: 100%; opacity: 0; }
-          }
-        `}} />
       </section>
     </div>
   );

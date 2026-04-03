@@ -32,7 +32,7 @@ O projeto utiliza o que há de mais moderno no ecossistema web:
 - [x] **SEO Avançado:** Estrutura semântica e metatags otimizadas.
 - [x] **Animações Premium:** Efeitos de contador (Counter Effect) em números de estatísticas e presença global.
 - [x] **Mascote Interativo:** Adição do mascote institucional na Hero Section para aumentar o engajamento visual.
-- [x] **Catálogo Técnico:** Grid de 4 colunas com efeitos de scanner e HUD animado em tempo real.
+- [x] **Catálogo Técnico:** Grid de 4 colunas responsivo e otimizado para navegação rápida.
 - [x] **Localização Avançada:** Seletor de idiomas integrado e tradução completa para o padrão industrial Yokomitsu.
 - [x] **Seção CTA de Distribuidores:** Novo convite para se tornar um distribuidor com descrição centrada na IPS do Brasil.
 - [x] **Cursor Customizado Otimizado:** Implementado com manipulação direta de DOM para latência zero, alinhamento de precisão e visual leve para uma navegação instantânea.
