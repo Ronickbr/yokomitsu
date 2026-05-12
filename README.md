@@ -10,7 +10,7 @@ Este projeto visa fortalecer a presença institucional da marca, transmitindo au
 
 O projeto utiliza o que há de mais moderno no ecossistema web:
 
-- **Framework:** [Next.js 16 (App Router)](https://nextjs.org/)
+- **Framework:** [Next.js 16 (App Router)](https://nextjs.org/) - *Migrado de Middleware para Proxy*
 - **Lógica:** [React 19](https://react.dev/)
 - **Estilização:** [Tailwind CSS v4](https://tailwindcss.com/)
 - **Animações:** [Framer Motion](https://www.framer.com/motion/)
@@ -23,6 +23,7 @@ O projeto utiliza o que há de mais moderno no ecossistema web:
 
 ### Fase 1 (Atual)
 - [x] **Arquitetura Multilíngue:** Suporte completo para Português, Inglês e Espanhol.
+- [x] **Migração Next.js 16 (Proxy):** Implementação da nova convenção `proxy.ts` em substituição ao `middleware.ts` para melhor performance e compatibilidade.
 - [x] **Design Modern Industrial:** Interface técnica, confiável e premium baseada na logo da marca.
 - [x] **Seção Institucional:** História, presença global (22 países) e importador oficial (IPS Brasil).
 - [x] **Destaques de Fabricação:** Seção detalhando controle de qualidade e tecnologia.
@@ -88,6 +89,7 @@ O projeto utiliza o que há de mais moderno no ecossistema web:
 - `/src/app`: Rotas e layouts do Next.js (App Router).
 - `/src/components`: Componentes React reutilizáveis.
 - `/src/lib`: Utilitários e configurações de bibliotecas (Prisma, i18n).
+- `/src/proxy.ts`: Lógica de proxy e proteção de rotas (antigo middleware).
 
 ## ⚖️ Licença
 

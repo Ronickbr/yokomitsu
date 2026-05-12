@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { Globe, ShieldCheck, Wrench, ArrowRight, Zap, Target } from "lucide-react";
+import { Globe, ShieldCheck, Wrench, ArrowRight, Zap, Target, Settings, Gauge } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import Magnetic from "@/components/ui/Magnetic";
@@ -14,18 +14,26 @@ export default function Home() {
     <div className="flex flex-col flex-1 bg-black selection:bg-brand-accent selection:text-white">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Grid Pattern Background */}
+        <div className="absolute inset-0 z-0 pattern-grid" />
+
         {/* Background Image with Parallax & Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero-steering.png"
             alt="Yokomitsu Cinematic Industrial"
             fill
-            className="object-cover opacity-60 scale-105 animate-slow-zoom"
+            className="object-cover opacity-50 scale-105 animate-slow-zoom"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black z-10" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/60 to-black z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-black/90 z-10" />
         </div>
+
+        {/* Animated Decorative Elements */}
+        <div className="absolute top-1/4 left-10 w-32 h-32 border border-brand-accent/20 rounded-full animate-spin-slow hidden lg:block" />
+        <div className="absolute bottom-1/4 right-10 w-24 h-24 border border-white/10 rounded-full animate-spin-reverse hidden lg:block" />
+        <div className="absolute top-1/3 right-1/4 w-2 h-32 bg-gradient-to-b from-brand-accent/30 to-transparent hidden lg:block animate-pulse" />
 
         <div className="container relative z-20 mx-auto px-6 pt-20">
           <div className="max-w-4xl">
@@ -87,11 +95,20 @@ export default function Home() {
       </section>
 
       {/* Categories Bento Grid */}
-      <section className="py-32 bg-black">
-        <div className="container mx-auto px-6">
+      <section className="py-32 bg-black relative overflow-hidden">
+        {/* Background Accent */}
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-accent/30 to-transparent" />
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-brand-accent/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-brand-accent/5 rounded-full blur-3xl" />
+
+        <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="max-w-2xl">
               <Reveal>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-[2px] bg-brand-accent" />
+                  <span className="text-brand-accent text-xs font-bold uppercase tracking-[0.3em]">Linhas de Produto</span>
+                </div>
                 <h2 className="font-display text-4xl md:text-6xl font-bold text-white mb-6 uppercase tracking-tighter">
                   {t("productLines")}
                 </h2>
@@ -211,9 +228,17 @@ export default function Home() {
 
 
       {/* Manufacturing Highlights - Full-Bleed Image Cards */}
-      <section className="bg-black py-24 lg:py-0">
+      <section className="bg-black py-24 lg:py-0 relative">
+        {/* Section Accent */}
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-brand-accent/50 to-transparent" />
+
         <div className="container mx-auto px-6 mb-12 lg:mb-16 text-center">
           <Reveal>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-accent/10 border border-brand-accent/20 mb-6">
+              <Settings className="w-4 h-4 text-brand-accent" />
+              <span className="text-brand-accent text-xs font-bold uppercase tracking-[0.2em]">Padrão de Produção</span>
+            </div>
             <h2 className="font-display text-3xl md:text-5xl font-bold text-white uppercase tracking-tighter mb-4 leading-tight md:leading-none">
               {t("productionStandardTitle")} <br className="block md:hidden" /> <span className="text-brand-accent">{t("productionStandardTitleHighlight")}</span>
             </h2>
@@ -357,8 +382,8 @@ export default function Home() {
 
       {/* Global & Importer Section - Glassmorphism */}
 
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-zinc-900/50 skew-y-3 transform origin-right" />
+      <section className="py-32 relative overflow-hidden bg-zinc-950">
+        <div className="absolute inset-0 bg-gradient-to-br from-zinc-900/30 via-transparent to-zinc-900/30" />
 
         {/* World Map Background - Enhanced for Glass Visibility */}
         <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
@@ -439,6 +464,7 @@ export default function Home() {
 
       {/* Featured CTA */}
       <section className="py-40 bg-brand-accent relative overflow-hidden">
+        {/* Animated Grid Pattern */}
         <div className="absolute inset-0 z-0 opacity-10">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
             <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
@@ -447,8 +473,21 @@ export default function Home() {
             <rect width="100" height="100" fill="url(#grid)" />
           </svg>
         </div>
+
+        {/* Decorative Circles */}
+        <div className="absolute top-10 left-10 w-32 h-32 border border-white/10 rounded-full" />
+        <div className="absolute bottom-10 right-10 w-48 h-48 border border-white/10 rounded-full" />
+        <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-white/30 rounded-full animate-pulse" />
+
         <div className="container mx-auto px-6 relative z-10 text-center">
           <Reveal width="100%">
+            <div className="inline-flex items-center justify-center gap-3 mb-8">
+              <Gauge className="w-8 h-8 text-white/80" />
+              <div className="w-20 h-[1px] bg-white/30" />
+              <span className="text-white/60 text-sm font-bold uppercase tracking-[0.3em]">Faça Parte</span>
+              <div className="w-20 h-[1px] bg-white/30" />
+              <Gauge className="w-8 h-8 text-white/80" />
+            </div>
             <h2 className="font-display text-5xl md:text-8xl font-bold text-white mb-6 uppercase tracking-tighter">
               {t("readyToAccelerate")}
             </h2>
@@ -462,17 +501,22 @@ export default function Home() {
             <Magnetic strength={0.2}>
               <Link
                 href="/contato"
-                className="bg-black text-white px-12 py-6 rounded-none text-lg font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl shadow-black/40"
+                className="group relative bg-black text-white px-12 py-6 text-lg font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl shadow-black/40 overflow-hidden"
               >
-                {t("beDistributor")}
+                <span className="relative z-10 flex items-center gap-3">
+                  {t("beDistributor")}
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-accent to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
             </Magnetic>
             <Magnetic strength={0.2}>
               <Link
                 href="/produtos"
-                className="bg-transparent border-2 border-white text-white px-12 py-6 rounded-none text-lg font-black uppercase tracking-widest hover:bg-white hover:text-brand-accent transition-colors"
+                className="bg-transparent border-2 border-white text-white px-12 py-6 text-lg font-black uppercase tracking-widest hover:bg-white hover:text-brand-accent transition-colors relative group"
               >
-                {t("downloadCatalog")}
+                <span className="relative z-10">{t("downloadCatalog")}</span>
+                <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
               </Link>
             </Magnetic>
           </div>

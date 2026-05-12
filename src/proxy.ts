@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const intlMiddleware = createMiddleware(routing);
 
-export default function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   // 1. Basic Admin Protection
   if (request.nextUrl.pathname.includes('/admin')) {
     // Check for a dummy cookie or header (In a real app, use next-auth or similar)
@@ -14,14 +14,14 @@ export default function middleware(request: NextRequest) {
     if (!isAuthenticated && !request.nextUrl.pathname.includes('/admin/login')) {
       // Extract locale from the URL to redirect properly
       const locale = request.nextUrl.pathname.split('/')[1];
-      const validLocale = routing.locales.includes(locale as any) ? locale : routing.defaultLocale;
+      const validLocale = routing.locales.includes(locale as (typeof routing.locales)[number]) ? locale : routing.defaultLocale;
       
       const loginUrl = new URL(`/${validLocale}/admin/login`, request.url);
       return NextResponse.redirect(loginUrl);
     }
   }
 
-  // 2. Next-Intl Middleware
+  // 2. Next-Intl Middleware (now running inside Proxy)
   return intlMiddleware(request);
 }
  

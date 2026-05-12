@@ -17,7 +17,7 @@ export default function AdminLoginPage() {
     // Simulate API call and set a dummy cookie
     setTimeout(() => {
       document.cookie = "yokomitsu_admin_session=authenticated; path=/; max-age=86400";
-      window.location.href = "/pt-BR/admin"; // Force reload to apply middleware rules
+      window.location.href = "/pt-BR/admin"; // Force reload to apply proxy rules
     }, 1200);
   };
 

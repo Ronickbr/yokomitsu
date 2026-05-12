@@ -17,8 +17,8 @@ export async function POST(request: NextRequest) {
       message: `Mock de importação concluído. (Modo Mockup Ativo)`
     });
 
-  } catch (error: any) {
-    console.error("Erro na importação:", error);
+  } catch (error: unknown) {
+    console.error("Erro na importação:", error instanceof Error ? error.message : error);
     return NextResponse.json({ error: "Ocorreu um erro interno ao processar o arquivo." }, { status: 500 });
   }
 }
