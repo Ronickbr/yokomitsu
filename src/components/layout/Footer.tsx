@@ -29,7 +29,7 @@ export default async function Footer() {
           <div className="md:col-span-5">
             <Link href="/" className="inline-flex items-center gap-6 mb-4 group">
               <Image
-                src="https://yokomitsu.pe/wp-content/uploads/2024/04/logo.png"
+                src="/logo.webp"
                 alt="Yokomitsu"
                 width={200}
                 height={50}

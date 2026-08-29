@@ -22,7 +22,7 @@ export default function Header() {
             <Magnetic strength={0.2}>
               <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
                 <Image
-                  src="https://yokomitsu.pe/wp-content/uploads/2024/04/logo.png"
+                  src="/logo.webp"
                   alt="Yokomitsu"
                   width={180}
                   height={45}
@@ -75,7 +75,7 @@ export default function Header() {
         {/* Mobile Header inside Overlay */}
         <div className="flex items-center justify-between mb-20">
           <Image
-            src="https://yokomitsu.pe/wp-content/uploads/2024/04/logo.png"
+            src="/logo.webp"
             alt="Yokomitsu"
             width={150}
             height={38}
